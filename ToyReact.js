@@ -8,9 +8,10 @@ class ElementWrapper {
             this.root.addEventListener(eventName, value);
         }
         if (name === "className") {
-            name = "class";
+            name = this.root.setAttribute("class", value);
+        } else {
+            this.root.setAttribute(name, value);
         }
-        this.root.setAttribute(name, value);
     }
     appendChild(vchild) {
         const range = document.createRange();
